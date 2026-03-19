@@ -94,16 +94,11 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const btn = form.querySelector('.btn-sub');
-      const original = btn.textContent;
-      btn.textContent = '✅ ¡Solicitud enviada! Nos ponemos en contacto pronto.';
-      btn.style.background = 'linear-gradient(135deg,#22c55e,#16a34a)';
+      btn.textContent = 'Enviando...';
       btn.disabled = true;
       setTimeout(() => {
-        btn.textContent = original;
-        btn.style.background = '';
-        btn.disabled = false;
-        form.reset();
-      }, 4000);
+        window.location.href = 'gracias.html';
+      }, 600);
     });
   });
 
