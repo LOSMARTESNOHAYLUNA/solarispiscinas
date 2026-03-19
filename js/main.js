@@ -53,7 +53,63 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.1 });
   document.querySelectorAll('.rv, .rv-l, .rv-r').forEach(el => obs.observe(el));
 
-  /* ── FAQ accordion ── */
+  /* ── Slider antes/después ── */
+  document.querySelectorAll('[data-slider]').forEach(slider => {
+    const before = slider.querySelector('.gi-before');
+    const line   = slider.querySelector('.gi-line');
+    const handle = slider.querySelector('.gi-handle');
+    // Fijar el ancho de la imagen "antes" para que no se deforme al recortar
+    const afterImg = slider.querySelector('.gi-after img');
+    const beforeImg = slider.querySelector('.gi-before img');
+
+    function setPos(pct) {
+      pct = Math.max(5, Math.min(95, pct));
+      before.style.width = pct + '%';
+      line.style.left    = pct + '%';
+      handle.style.left  = pct + '%';
+      // Evitar que la imagen del before se deforme
+      beforeImg.style.width  = slider.offsetWidth + 'px';
+      beforeImg.style.height = slider.offsetHeight + 'px';
+      beforeImg.style.objectFit = 'cover';
+      beforeImg.style.position  = 'absolute';
+      beforeImg.style.top = '0';
+      beforeImg.style.left = '0';
+    }
+
+    // Init al 50%
+    setPos(50);
+    window.addEventListener('resize', () => setPos(
+      parseFloat(before.style.width) || 50
+    ));
+
+    let dragging = false;
+
+    function startDrag(e) {
+      dragging = true;
+      slider.classList.add('dragging');
+      e.preventDefault();
+    }
+    function stopDrag() {
+      dragging = false;
+      slider.classList.remove('dragging');
+    }
+    function onMove(clientX) {
+      if (!dragging) return;
+      const rect = slider.getBoundingClientRect();
+      const pct  = ((clientX - rect.left) / rect.width) * 100;
+      setPos(pct);
+    }
+
+    // Mouse
+    slider.addEventListener('mousedown',  startDrag);
+    window.addEventListener('mouseup',    stopDrag);
+    window.addEventListener('mousemove',  e => onMove(e.clientX));
+
+    // Touch
+    slider.addEventListener('touchstart', e => { startDrag(e); }, { passive: false });
+    window.addEventListener('touchend',   stopDrag);
+    window.addEventListener('touchmove',  e => onMove(e.touches[0].clientX), { passive: true });
+  });
   document.querySelectorAll('.fq').forEach(btn => {
     btn.addEventListener('click', () => {
       const item = btn.closest('.fi');

@@ -212,23 +212,102 @@ p  { line-height: 1.75; color: var(--gris-dk); }
 }
 
 /* ═══════════════════════════════════════
-   GALERÍA ANTES/DESPUÉS
+   GALERÍA ANTES/DESPUÉS — SLIDER DRAGGABLE
    ═══════════════════════════════════════ */
 .sec-gal { background: linear-gradient(155deg, #093347 0%, #0A6885 55%, #0891B2 100%); }
 .sec-gal .sec-hd h2 { color: #fff; }
 .sec-gal .sec-hd p  { color: rgba(255,255,255,.58); }
 .ggrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.3rem; }
-.gi { border-radius: var(--rl); overflow: hidden; }
-.gsplit { display: grid; grid-template-columns: 1fr 1fr; height: 270px; position: relative; }
-.gp { position: relative; display: flex; align-items: flex-end; padding: .75rem; overflow: hidden; }
-.gpbg { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; transition: transform .4s; }
-.gpbg img { width: 100%; height: 100%; object-fit: cover; }
-.gi:hover .gpbg { transform: scale(1.06); }
-.gp.antes .gpbg { filter: saturate(.4) brightness(.85); }
-.glbl { position: relative; z-index: 2; font-size: .66rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #fff; background: rgba(0,0,0,.42); padding: 3px 9px; border-radius: 50px; }
-.gdiv { position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; background: var(--arena); z-index: 3; }
-.gdot { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 26px; height: 26px; border-radius: 50%; background: var(--arena); z-index: 4; display: flex; align-items: center; justify-content: center; color: #fff; font-size: .65rem; font-weight: 700; }
-.gcap { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(9,51,71,.92), transparent); color: #fff; padding: 1rem .9rem .8rem; font-size: .78rem; font-weight: 500; grid-column: span 2; }
+
+/* Contenedor slider */
+.gi {
+  border-radius: var(--rl); overflow: hidden;
+  position: relative; height: 300px;
+  cursor: col-resize; user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Imagen "después" — ocupa todo el fondo */
+.gi-after {
+  position: absolute; inset: 0;
+}
+.gi-after img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+
+/* Imagen "antes" — clip dinámico controlado por JS */
+.gi-before {
+  position: absolute; inset: 0;
+  overflow: hidden;
+  width: 50%; /* valor inicial, JS lo actualiza */
+}
+.gi-before img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  /* mismo tamaño que el after para que no se deforme */
+  min-width: 100vw; /* se corrige vía JS */
+}
+
+/* Línea divisora */
+.gi-line {
+  position: absolute; top: 0; bottom: 0;
+  left: 50%; /* valor inicial */
+  width: 3px;
+  background: var(--arena);
+  z-index: 4;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+/* Botón arrastrable */
+.gi-handle {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--arena);
+  border: 3px solid #fff;
+  box-shadow: 0 2px 12px rgba(0,0,0,.35);
+  z-index: 5;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: .75rem; font-weight: 700;
+  pointer-events: none;
+  transition: transform .15s, box-shadow .15s;
+}
+.gi.dragging .gi-handle {
+  transform: translate(-50%, -50%) scale(1.15);
+  box-shadow: 0 4px 20px rgba(0,0,0,.45);
+}
+
+/* Etiquetas ANTES / DESPUÉS */
+.gi-lbl-before, .gi-lbl-after {
+  position: absolute; bottom: 14px; z-index: 6;
+  font-size: .66rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: #fff; padding: 4px 10px; border-radius: 50px;
+  pointer-events: none;
+}
+.gi-lbl-before {
+  left: 12px;
+  background: rgba(0,0,0,.5);
+}
+.gi-lbl-after {
+  right: 12px;
+  background: rgba(10,175,204,.7);
+}
+
+/* Caption */
+.gi-caption {
+  position: absolute; bottom: 0; left: 0; right: 0; z-index: 3;
+  background: linear-gradient(to top, rgba(9,51,71,.88), transparent);
+  color: #fff; padding: 2.2rem .9rem .7rem;
+  font-size: .78rem; font-weight: 500;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .ggrid { grid-template-columns: 1fr; }
+  .gi { height: 260px; }
+}
 
 /* ═══════════════════════════════════════
    RENOLIT
