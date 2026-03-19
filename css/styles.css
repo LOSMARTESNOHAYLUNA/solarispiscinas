@@ -105,6 +105,7 @@ p  { line-height: 1.75; color: var(--gris-dk); }
   position: fixed; top: 0; left: 0; right: 0; z-index: 900;
   padding: 0 24px;
   transition: background .35s, box-shadow .35s;
+  overflow: visible;
 }
 #hdr.sc {
   background: rgba(8,145,178,.97);
@@ -125,37 +126,27 @@ p  { line-height: 1.75; color: var(--gris-dk); }
 .nav-dropdown-toggle { cursor: pointer; }
 .nav-dropdown-menu {
   display: none;
-  position: absolute; top: calc(100% + 12px); left: 50%;
+  position: absolute; top: calc(100% + 8px); left: 50%;
   transform: translateX(-50%);
-  background: rgba(8,145,178,.97);
-  backdrop-filter: blur(18px);
+  background: #065869;
   border: 1px solid rgba(255,255,255,.15);
   border-radius: 14px;
-  padding: .6rem;
-  min-width: 220px;
+  padding: .5rem;
+  min-width: 230px;
   list-style: none;
-  box-shadow: 0 8px 32px rgba(0,0,0,.25);
-  z-index: 100;
-}
-.nav-dropdown-menu::before {
-  content: '';
-  position: absolute; top: -6px; left: 50%;
-  transform: translateX(-50%);
-  width: 12px; height: 12px;
-  background: rgba(8,145,178,.97);
-  border-left: 1px solid rgba(255,255,255,.15);
-  border-top: 1px solid rgba(255,255,255,.15);
-  transform: translateX(-50%) rotate(45deg);
+  box-shadow: 0 12px 40px rgba(0,0,0,.35);
+  z-index: 9999;
+  white-space: nowrap;
 }
 .nav-dropdown-menu li a {
   display: block;
-  padding: .65rem 1rem;
+  padding: .7rem 1.1rem;
   border-radius: 9px;
   color: rgba(255,255,255,.85) !important;
-  font-size: .85rem !important;
+  font-size: .86rem !important;
   font-weight: 500;
+  text-decoration: none;
   transition: background .2s, color .2s;
-  white-space: nowrap;
 }
 .nav-dropdown-menu li a:hover {
   background: rgba(255,255,255,.12);
@@ -164,10 +155,10 @@ p  { line-height: 1.75; color: var(--gris-dk); }
 .nav-dropdown:hover .nav-dropdown-menu,
 .nav-dropdown:focus-within .nav-dropdown-menu {
   display: block;
-  animation: fadeDropdown .2s ease;
+  animation: fadeDropdown .18s ease;
 }
 @keyframes fadeDropdown {
-  from { opacity: 0; transform: translateX(-50%) translateY(-6px); }
+  from { opacity: 0; transform: translateX(-50%) translateY(-8px); }
   to   { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
 
