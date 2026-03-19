@@ -1,53 +1,32 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contacto | Piscinas Solaris Madrid</title>
-<meta name="description" content="Contacta con Solaris para tu presupuesto de piscinas en Madrid. Llámanos al 614 69 10 70 o rellena el formulario. Visita nuestra nave en Sevilla la Nueva.">
+<meta name="description" content="Contacta con Solaris. Obra nueva, rehabilitación, reformas o lámina armada. Te respondemos en menos de 24h. Llama al 614 69 10 70.">
 <link rel="stylesheet" href="css/styles.css">
 <style>
-.contacto-hero { background: linear-gradient(145deg, #093347 0%, #0A6885 50%, #0AAFCC 100%); }
-.con-full { display: grid; grid-template-columns: 1fr 1.3fr; gap: 4rem; align-items: start; }
-.zonas-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
-.zona-pill { background: var(--agua-l); border-radius: 10px; padding: .8rem 1rem; font-size: .88rem; font-weight: 500; color: var(--agua-d); display: flex; align-items: center; gap: 8px; }
-.mapa-grande { border-radius: var(--rl); overflow: hidden; height: 300px; border: 1.5px solid var(--gris-brd); margin-top: 1.5rem; }
-.mapa-grande iframe { width: 100%; height: 100%; border: none; display: block; }
-@media(max-width:1024px){ .con-full { grid-template-columns: 1fr; } }
-@media(max-width:600px){ .zonas-grid { grid-template-columns: 1fr; } }
+.con-full{display:grid;grid-template-columns:1fr 1.3fr;gap:4rem;align-items:start}
+.mini-servicios{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}
+.mini-svc{background:var(--gris-bg);border:1.5px solid var(--gris-brd);border-radius:var(--r);padding:1.4rem;transition:all .25s}
+.mini-svc:hover{border-color:var(--agua);transform:translateY(-3px)}
+.mini-svc h3{font-size:.9rem;margin-bottom:.4rem}
+.mini-svc p{font-size:.82rem;margin-bottom:.8rem}
+.mini-svc a{font-size:.8rem;font-weight:600;color:var(--agua-d);text-decoration:none}
+@media(max-width:1024px){.con-full{grid-template-columns:1fr}}
+@media(max-width:600px){.mini-servicios{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
+<header id="hdr"><nav class="nav wrap"><a href="index.html" class="logo-t">Solar<span>is</span></a><ul class="nav-links"><li><a href="servicios.html">Servicios</a></li><li><a href="index.html#galeria">Proyectos</a></li><li><a href="index.html#precios">Precios</a></li><li><a href="index.html#faq">FAQ</a></li><li><a href="contacto.html" class="btn btn-arena" style="padding:9px 20px;font-size:.85rem">Pedir presupuesto</a></li></ul><button class="hamburger" aria-label="Menú"><span></span><span></span><span></span></button></nav></header>
+<nav id="mobile-menu" class="mobile-menu"><a href="servicios.html">Servicios</a><a href="construccion-piscinas.html">Construcción</a><a href="rehabilitacion.html">Rehabilitación</a><a href="lamina-armada.html">Lámina armada</a><a href="reformas-piscinas.html">Reformas</a><a href="contacto.html">Contacto</a></nav>
 
-<header id="hdr">
-  <nav class="nav wrap">
-    <a href="index.html" class="logo-t">Solar<span>is</span></a>
-    <ul class="nav-links">
-      <li><a href="servicios.html">Servicios</a></li>
-      <li><a href="index.html#galeria">Proyectos</a></li>
-      <li><a href="index.html#precios">Precios</a></li>
-      <li><a href="index.html#faq">FAQ</a></li>
-      <li><a href="contacto.html" class="btn btn-arena" style="padding:9px 20px;font-size:.85rem">Pedir presupuesto</a></li>
-    </ul>
-    <button class="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
-  </nav>
-</header>
-<nav id="mobile-menu" class="mobile-menu">
-  <a href="servicios.html">Servicios</a>
-  <a href="construccion-piscinas.html">Construcción</a>
-  <a href="rehabilitacion.html">Rehabilitación</a>
-  <a href="lamina-armada.html">Lámina armada</a>
-  <a href="reformas-piscinas.html">Reformas</a>
-  <a href="contacto.html">Contacto</a>
-</nav>
-
-<!-- HERO -->
-<section class="page-hero contacto-hero">
+<section class="page-hero" style="background:linear-gradient(145deg,#093347 0%,#0A6885 50%,#0AAFCC 100%)">
   <div class="page-hero-img" style="background-image:url('img/construcion%20piscina%20madrid%20y%20alrededores.jpg')"></div>
   <div class="wrap page-hero-content rv-l">
     <div class="chip chip-w">Contacto</div>
-    <h1>¿Hablamos sobre tu Proyecto de Piscina?</h1>
-    <p class="sub">Da igual si quieres construir desde cero, rehabilitar una piscina antigua o instalar lámina armada RENOLIT. Estamos aquí para escucharte y ayudarte sin compromiso.</p>
+    <h1>Contacta con SOLARIS. Estamos aquí para ayudarte.</h1>
+    <p class="sub">Obra nueva, rehabilitación, reformas o lámina armada. Da igual lo que busques: te escuchamos y te damos una solución a medida.</p>
     <div style="display:flex;gap:.9rem;flex-wrap:wrap">
       <a href="tel:614691070" class="btn btn-arena">📞 614 69 10 70</a>
       <a href="https://wa.me/34614691070" class="btn btn-ghost" target="_blank">💬 WhatsApp</a>
@@ -56,144 +35,63 @@
   <div class="hero-wave"><svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,35C360,70 720,0 1080,35C1260,53 1380,17 1440,35L1440,70L0,70Z" fill="#FFFFFF"/></svg></div>
 </section>
 
-<!-- CONTACTO PRINCIPAL -->
 <section class="sec">
   <div class="wrap">
+    <div class="sec-hd rv"><div class="chip chip-b">Antes de decidirte</div><h2>¿Por qué hablar con nosotros antes de decidirte?</h2><p>Porque no nos gusta hacer presupuestos sin mirarte a los ojos. Preferimos visitar tu piscina, entender lo que necesitas y luego hablarte claro. Sin prisas. Sin letra pequeña. Sin compromiso.</p></div>
     <div class="con-full">
-      <!-- Info -->
       <div class="rv-l">
-        <div class="chip chip-b">Dónde estamos</div>
-        <h2>Visítanos o llámanos</h2>
-        <p style="margin-bottom:1.8rem">Visita nuestra nave en Sevilla la Nueva o solicita una visita para que conozcamos tu proyecto sobre el terreno.</p>
-
-        <div class="dato">
-          <div class="dato-ico">📞</div>
-          <div class="dato-t">
-            <strong>Teléfono</strong>
-            <a href="tel:614691070">614 69 10 70</a>
-          </div>
-        </div>
-        <div class="dato">
-          <div class="dato-ico">💬</div>
-          <div class="dato-t">
-            <strong>WhatsApp</strong>
-            <a href="https://wa.me/34614691070" target="_blank">Escríbenos por WhatsApp</a>
-          </div>
-        </div>
-        <div class="dato">
-          <div class="dato-ico">📧</div>
-          <div class="dato-t">
-            <strong>Email</strong>
-            <a href="mailto:contacto@dominio.com">contacto@dominio.com</a>
-          </div>
-        </div>
-        <div class="dato">
-          <div class="dato-ico">📍</div>
-          <div class="dato-t">
-            <strong>Dirección</strong>
-            <span>C/ Del Rey nº2, nave 13<br>28609 Sevilla la Nueva · Madrid</span>
-          </div>
-        </div>
-        <div class="dato">
-          <div class="dato-ico">🕐</div>
-          <div class="dato-t">
-            <strong>Horario</strong>
-            <span>Lunes – Viernes: 8:00 – 18:00<br>Sábados: 9:00 – 13:00</span>
-          </div>
-        </div>
-
-        <h3 style="margin-top:2rem;margin-bottom:1rem;font-size:1rem">Zonas de actuación</h3>
-        <div class="zonas-grid">
-          <div class="zona-pill">📍 Madrid</div>
-          <div class="zona-pill">📍 Ávila</div>
-          <div class="zona-pill">📍 Segovia</div>
-          <div class="zona-pill">📍 Guadalajara</div>
-          <div class="zona-pill">📍 Toledo</div>
-          <div class="zona-pill">📍 Cuenca</div>
-        </div>
-        <p style="font-size:.82rem;color:var(--gris-md);margin-top:.8rem">Para rehabilitaciones, trabajamos en <strong>toda la península</strong>.</p>
-
-        <div class="mapa-grande">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3040.5309559945104!2d-4.037944810751189!3d40.35274988592772!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4196573422bb37%3A0x14db9e7ed05e845a!2sC.%20del%20Rey%2C%202%2C%2028609%20Sevilla%20la%20Nueva%2C%20Madrid!5e0!3m2!1ses!2ses!4v1772532571687!5m2!1ses!2ses" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+        <h2 style="font-size:1.4rem;margin-bottom:1rem">Si lo prefieres, llámanos o pásate a vernos.</h2>
+        <div class="dato"><div class="dato-ico">📞</div><div class="dato-t"><strong>Teléfono</strong><a href="tel:614691070">614 69 10 70</a></div></div>
+        <div class="dato"><div class="dato-ico">💬</div><div class="dato-t"><strong>WhatsApp</strong><a href="https://wa.me/34614691070" target="_blank">Escríbenos por WhatsApp</a></div></div>
+        <div class="dato"><div class="dato-ico">📧</div><div class="dato-t"><strong>Email</strong><a href="mailto:contacto@dominio.com">contacto@dominio.com</a></div></div>
+        <div class="dato"><div class="dato-ico">📍</div><div class="dato-t"><strong>Dirección</strong><span>C/ Del Rey nº2, nave 13<br>28609 Sevilla la Nueva · Madrid</span></div></div>
+        <div class="dato"><div class="dato-ico">🕐</div><div class="dato-t"><strong>Horario de oficina</strong><span>Lunes a viernes: 9:00–14:00 y 16:00–19:00<br>Sábados y domingos: cerrados (pero puedes escribirnos, que el lunes respondemos)</span></div></div>
+        <div class="mapa"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3040.5309559945104!2d-4.037944810751189!3d40.35274988592772!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4196573422bb37%3A0x14db9e7ed05e845a!2sC.%20del%20Rey%2C%202%2C%2028609%20Sevilla%20la%20Nueva%2C%20Madrid!5e0!3m2!1ses!2ses!4v1772532571687!5m2!1ses!2ses" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
       </div>
-
-      <!-- Formulario -->
       <div class="fcard rv-r" style="position:sticky;top:90px">
-        <h3>Solicita tu presupuesto</h3>
-        <p class="sub">Te respondemos en menos de 24 horas · Sin compromiso</p>
+        <h3>Escríbenos y te responderemos en menos de 24h.</h3>
+        <p class="sub">Cuéntanos tu idea, tu problema o tu duda. Te ayudamos.</p>
         <form data-contact>
           <div class="fgrow">
-            <div class="fg">
-              <label for="nom">Nombre *</label>
-              <input type="text" id="nom" name="nombre" placeholder="Tu nombre" required>
-            </div>
-            <div class="fg">
-              <label for="tel">Teléfono *</label>
-              <input type="tel" id="tel" name="telefono" placeholder="614 00 00 00" required>
-            </div>
+            <div class="fg"><label for="nom">Nombre completo</label><input type="text" id="nom" name="nombre" placeholder="Tu nombre" required></div>
+            <div class="fg"><label for="tel">Teléfono</label><input type="tel" id="tel" name="telefono" placeholder="614 00 00 00" required></div>
           </div>
-          <div class="fg">
-            <label for="em">Email *</label>
-            <input type="email" id="em" name="email" placeholder="tu@email.com" required>
-          </div>
-          <div class="fg">
-            <label for="srv">¿Qué necesitas? *</label>
+          <div class="fg"><label for="em">Email</label><input type="email" id="em" name="email" placeholder="tu@email.com" required></div>
+          <div class="fg"><label for="srv">¿Qué necesitas?</label>
             <select id="srv" name="servicio" required>
-              <option value="" disabled selected>Selecciona un servicio</option>
-              <option value="construccion">Construcción de piscina nueva</option>
-              <option value="rehabilitacion">Rehabilitación de piscina</option>
-              <option value="lamina">Instalación de lámina armada</option>
-              <option value="reforma">Reforma integral</option>
-              <option value="otros">Otros / No sé todavía</option>
+              <option value="" disabled selected>Selecciona una opción</option>
+              <option value="construccion">Construcción</option>
+              <option value="rehabilitacion">Rehabilitación</option>
+              <option value="reformas">Reformas</option>
+              <option value="lamina">Lámina armada</option>
+              <option value="otros">Otros</option>
             </select>
           </div>
-          <div class="fg">
-            <label for="prov">Provincia</label>
-            <select id="prov" name="provincia">
-              <option value="" disabled selected>¿Dónde está la piscina?</option>
-              <option>Madrid</option>
-              <option>Ávila</option>
-              <option>Segovia</option>
-              <option>Guadalajara</option>
-              <option>Toledo</option>
-              <option>Cuenca</option>
-              <option>Otra provincia</option>
-            </select>
-          </div>
-          <div class="fg">
-            <label for="msg">Mensaje</label>
-            <textarea id="msg" name="mensaje" placeholder="Cuéntanos tu proyecto: dimensiones aproximadas, estado actual, urgencia..."></textarea>
-          </div>
+          <div class="fg"><label for="msg">Mensaje</label><textarea id="msg" name="mensaje" placeholder="Cuéntanos qué tienes en mente..."></textarea></div>
           <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:.9rem">
-            <input type="checkbox" id="privacidad" required style="width:auto;margin-top:2px">
+            <input type="checkbox" id="privacidad" required style="width:auto;margin-top:3px">
             <label for="privacidad" style="font-size:.78rem;color:var(--gris-dk);text-transform:none;letter-spacing:0;font-weight:400">He leído y acepto la <a href="#" style="color:var(--agua-d)">Política de Privacidad</a></label>
           </div>
-          <button type="submit" class="btn-sub">Enviar solicitud de presupuesto →</button>
+          <button type="submit" class="btn-sub">Enviar mensaje →</button>
         </form>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="ft-wrap">
-    <div class="ft-grid">
-      <div class="ft-brand"><a href="index.html" class="logo-t">Solar<span>is</span></a><p>Especialistas en construcción y rehabilitación de piscinas en Madrid. Calidad, confianza y transparencia.</p></div>
-      <div class="ft-col"><h4>Servicios</h4><ul><li><a href="construccion-piscinas.html">Construcción</a></li><li><a href="rehabilitacion.html">Rehabilitación</a></li><li><a href="lamina-armada.html">Lámina armada</a></li><li><a href="reformas-piscinas.html">Reformas</a></li></ul></div>
-      <div class="ft-col"><h4>Empresa</h4><ul><li><a href="servicios.html">Servicios</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
-      <div class="ft-col"><h4>Contacto</h4><ul><li><a href="tel:614691070">📞 614 69 10 70</a></li><li><a href="mailto:contacto@dominio.com">📧 contacto@dominio.com</a></li><li><a href="#">📍 Sevilla la Nueva, Madrid</a></li></ul></div>
+<section class="sec" style="background:var(--gris-bg)">
+  <div class="wrap">
+    <div class="sec-hd rv"><div class="chip chip-b">¿Todavía no tienes claro lo que necesitas?</div><h2>Échale un vistazo a esto.</h2></div>
+    <div class="mini-servicios rv">
+      <div class="mini-svc"><h3>Construcción de piscinas nuevas</h3><p>Diseñamos y construimos tu piscina desde cero con bloques de hormigón armado.</p><a href="construccion-piscinas.html">Ver obra nueva →</a></div>
+      <div class="mini-svc"><h3>Rehabilitación de piscinas</h3><p>¿Fugas, grietas o gresite desprendido? Intervención completa con lámina RENOLIT.</p><a href="rehabilitacion.html">Ver rehabilitación →</a></div>
+      <div class="mini-svc"><h3>Reformas de piscinas</h3><p>Bordes, césped, playa húmeda... Transformamos el entorno de tu piscina.</p><a href="reformas-piscinas.html">Ver reformas →</a></div>
+      <div class="mini-svc"><h3>Lámina armada RENOLIT</h3><p>Todas las gamas para impermeabilizar y decorar tu piscina.</p><a href="lamina-armada.html">Ver láminas →</a></div>
     </div>
-    <div class="ft-bot"><p>© 2025 Solaris · <a href="#">Política de privacidad</a> · <a href="#">Aviso legal</a></p><div class="ft-soc"><a href="#" aria-label="Instagram">ig</a><a href="#" aria-label="Facebook">fb</a><a href="#" aria-label="WhatsApp">wa</a></div></div>
   </div>
-</footer>
+</section>
 
-<div class="float">
-  <a href="https://wa.me/34614691070" class="fb-btn fb-wa" target="_blank">💬 WhatsApp</a>
-  <a href="tel:614691070" class="fb-btn fb-tel">📞 Llamar</a>
-</div>
-
+<footer><div class="ft-wrap"><div class="ft-grid"><div class="ft-brand"><a href="index.html" class="logo-t">Solar<span>is</span></a><p>Especialistas en construcción y rehabilitación de piscinas en Madrid.</p></div><div class="ft-col"><h4>Servicios</h4><ul><li><a href="construccion-piscinas.html">Construcción</a></li><li><a href="rehabilitacion.html">Rehabilitación</a></li><li><a href="lamina-armada.html">Lámina armada</a></li><li><a href="reformas-piscinas.html">Reformas</a></li></ul></div><div class="ft-col"><h4>Empresa</h4><ul><li><a href="servicios.html">Servicios</a></li><li><a href="quienes-somos.html">Quiénes somos</a></li><li><a href="contacto.html">Contacto</a></li></ul></div><div class="ft-col"><h4>Contacto</h4><ul><li><a href="tel:614691070">📞 614 69 10 70</a></li><li><a href="mailto:contacto@dominio.com">📧 contacto@dominio.com</a></li><li><a href="#">📍 Sevilla la Nueva, Madrid</a></li></ul></div></div><div class="ft-bot"><p>© 2025 Solaris · <a href="#">Política de privacidad</a> · <a href="#">Aviso legal</a></p><div class="ft-soc"><a href="#" aria-label="Instagram">ig</a><a href="#" aria-label="Facebook">fb</a><a href="#" aria-label="WhatsApp">wa</a></div></div></div></footer>
+<div class="float"><a href="https://wa.me/34614691070" class="fb-btn fb-wa" target="_blank">💬 WhatsApp</a><a href="tel:614691070" class="fb-btn fb-tel">📞 Llamar</a></div>
 <script src="js/main.js"></script>
-</body>
-</html>
+</body></html>
