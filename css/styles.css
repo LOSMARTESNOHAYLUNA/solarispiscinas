@@ -219,38 +219,35 @@ p  { line-height: 1.75; color: var(--gris-dk); }
 .sec-gal .sec-hd p  { color: rgba(255,255,255,.58); }
 .ggrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.3rem; }
 
-/* Contenedor slider */
+/* Contenedor */
 .gi {
   border-radius: var(--rl); overflow: hidden;
   position: relative; height: 300px;
-  cursor: col-resize; user-select: none;
-  -webkit-user-select: none;
+  cursor: col-resize;
+  user-select: none; -webkit-user-select: none;
 }
 
-/* Imagen "después" — ocupa todo el fondo */
-.gi-after {
-  position: absolute; inset: 0;
-}
-.gi-after img {
-  width: 100%; height: 100%; object-fit: cover; display: block;
-}
-
-/* Imagen "antes" — clip dinámico controlado por JS */
+/* Ambas imágenes ocupan todo el contenedor */
+.gi-after,
 .gi-before {
   position: absolute; inset: 0;
-  overflow: hidden;
-  width: 50%; /* valor inicial, JS lo actualiza */
 }
+.gi-after img,
 .gi-before img {
-  width: 100%; height: 100%; object-fit: cover; display: block;
-  /* mismo tamaño que el after para que no se deforme */
-  min-width: 100vw; /* se corrige vía JS */
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
+
+/* El "antes" se recorta con clip-path: empieza en 0% a la izquierda, termina en 50% */
+.gi-before {
+  clip-path: inset(0 50% 0 0); /* el 50% derecho queda oculto */
+  transition: clip-path 0s;    /* sin transición para que sea fluido al arrastrar */
 }
 
 /* Línea divisora */
 .gi-line {
   position: absolute; top: 0; bottom: 0;
-  left: 50%; /* valor inicial */
+  left: 50%;
   width: 3px;
   background: var(--arena);
   z-index: 4;
@@ -258,56 +255,49 @@ p  { line-height: 1.75; color: var(--gris-dk); }
   pointer-events: none;
 }
 
-/* Botón arrastrable */
+/* Handle */
 .gi-handle {
-  position: absolute; top: 50%; left: 50%;
+  position: absolute;
+  top: 50%; left: 50%;
   transform: translate(-50%, -50%);
   width: 44px; height: 44px;
   border-radius: 50%;
   background: var(--arena);
   border: 3px solid #fff;
-  box-shadow: 0 2px 12px rgba(0,0,0,.35);
+  box-shadow: 0 2px 12px rgba(0,0,0,.4);
   z-index: 5;
   display: flex; align-items: center; justify-content: center;
-  color: #fff; font-size: .75rem; font-weight: 700;
+  color: #fff; font-size: .8rem; font-weight: 800;
   pointer-events: none;
-  transition: transform .15s, box-shadow .15s;
+  transition: transform .1s;
 }
 .gi.dragging .gi-handle {
-  transform: translate(-50%, -50%) scale(1.15);
-  box-shadow: 0 4px 20px rgba(0,0,0,.45);
+  transform: translate(-50%, -50%) scale(1.2);
 }
 
-/* Etiquetas ANTES / DESPUÉS */
-.gi-lbl-before, .gi-lbl-after {
-  position: absolute; bottom: 14px; z-index: 6;
+/* Etiquetas */
+.gi-lbl-before,
+.gi-lbl-after {
+  position: absolute; bottom: 42px; z-index: 6;
   font-size: .66rem; font-weight: 700;
   letter-spacing: .1em; text-transform: uppercase;
   color: #fff; padding: 4px 10px; border-radius: 50px;
   pointer-events: none;
 }
-.gi-lbl-before {
-  left: 12px;
-  background: rgba(0,0,0,.5);
-}
-.gi-lbl-after {
-  right: 12px;
-  background: rgba(10,175,204,.7);
-}
+.gi-lbl-before { left: 12px;  background: rgba(0,0,0,.5); }
+.gi-lbl-after  { right: 12px; background: rgba(10,175,204,.75); }
 
 /* Caption */
 .gi-caption {
   position: absolute; bottom: 0; left: 0; right: 0; z-index: 3;
-  background: linear-gradient(to top, rgba(9,51,71,.88), transparent);
-  color: #fff; padding: 2.2rem .9rem .7rem;
+  background: linear-gradient(to top, rgba(9,51,71,.9), transparent);
+  color: #fff; padding: 2rem .9rem .7rem;
   font-size: .78rem; font-weight: 500;
   pointer-events: none;
 }
 
-@media (max-width: 768px) {
-  .ggrid { grid-template-columns: 1fr; }
-  .gi { height: 260px; }
-}
+@media (max-width: 1024px) { .ggrid { grid-template-columns: 1fr; } }
+@media (max-width: 768px)  { .gi { height: 260px; } }
 
 /* ═══════════════════════════════════════
    RENOLIT
