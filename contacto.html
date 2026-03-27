@@ -86,7 +86,10 @@
       <div class="fcard rv-r" style="position:sticky;top:90px">
         <h3>Escríbenos y te responderemos en menos de 24h.</h3>
         <p class="sub">Cuéntanos tu idea, tu problema o tu duda. Te ayudamos.</p>
-        <form data-contact>
+        <form action="https://api.web3forms.com/submit" method="POST" data-contact>
+          <input type="hidden" name="access_key" value="595afc4f-44e6-4170-a888-0b6d70a9b571">
+          <input type="hidden" name="subject" value="Nuevo presupuesto - Piscinas Solaris">
+          <input type="hidden" name="redirect" value="https://piscinassolaris.es/gracias.html">
           <div class="fgrow">
             <div class="fg"><label for="nom">Nombre completo</label><input type="text" id="nom" name="nombre" placeholder="Tu nombre" required></div>
             <div class="fg"><label for="tel">Teléfono</label><input type="tel" id="tel" name="telefono" placeholder="614 00 00 00" required></div>
