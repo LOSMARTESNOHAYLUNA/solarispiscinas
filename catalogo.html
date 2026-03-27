@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo Lámina Armada RENOLIT ALKORPLAN | Solaris Piscinas Madrid</title>
+<meta name="description" content="Catálogo completo de membranas armadas RENOLIT ALKORPLAN para piscinas. Touch, Vogue, Ceramics, Alive, Relief y Kolos. Instaladores certificados en Madrid.">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+.page-hero { background: linear-gradient(145deg, #093347 0%, #0A6885 50%, #0AAFCC 100%); }
+
+/* Grid catálogo */
+.catalogo-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+/* Tarjeta de gama */
+.gama-card {
+  background: #fff;
+  border-radius: var(--rl);
+  overflow: hidden;
+  box-shadow: var(--sh-md);
+  border: 1.5px solid var(--gris-brd);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  transition: transform .3s, box-shadow .3s;
+}
+.gama-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sh-lg);
+}
+.gama-card:nth-child(even) { direction: rtl; }
+.gama-card:nth-child(even) > * { direction: ltr; }
+
+/* Imagen */
+.gama-img {
+  position: relative;
+  overflow: hidden;
+  min-height: 280px;
+}
+.gama-img img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  transition: transform .5s ease;
+}
+.gama-card:hover .gama-img img { transform: scale(1.04); }
+
+/* Badge gama */
+.gama-badge {
+  position: absolute; top: 1rem; left: 1rem;
+  font-size: .68rem; font-weight: 800;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 50px;
+  z-index: 2;
+}
+.badge-alta    { background: var(--arena);  color: #fff; }
+.badge-media   { background: var(--agua);   color: #fff; }
+.badge-basica  { background: var(--gris-dk); color: #fff; }
+.badge-trafico { background: var(--oscuro); color: #fff; }
+
+/* Contenido */
+.gama-body {
+  padding: 2.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+.gama-nombre {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--oscuro);
+  letter-spacing: -.03em;
+  line-height: 1;
+}
+.gama-specs {
+  font-size: .82rem; font-weight: 600;
+  color: var(--agua-d);
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+.gama-desc {
+  font-size: .97rem;
+  color: var(--gris-dk);
+  line-height: 1.72;
+}
+.gama-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--agua); color: #fff;
+  padding: 12px 24px; border-radius: 50px;
+  font-family: inherit; font-size: .88rem; font-weight: 600;
+  text-decoration: none; border: none; cursor: pointer;
+  transition: all .25s; align-self: flex-start;
+  box-shadow: 0 4px 16px rgba(10,175,204,.3);
+}
+.gama-cta:hover {
+  background: var(--agua-d);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(10,175,204,.4);
+}
+
+@media (max-width: 900px) {
+  .gama-card { grid-template-columns: 1fr; direction: ltr !important; }
+  .gama-card:nth-child(even) { direction: ltr; }
+  .gama-img { min-height: 220px; }
+  .gama-body { padding: 2rem; }
+}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <nav class="nav wrap">
+    <a href="index.html" style="display:inline-flex;align-items:center;text-decoration:none">
+      <img src="img/logo-solaris-positivo-01.svg" alt="Solaris Piscinas" style="height:64px;width:auto;display:block">
+    </a>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <a href="servicios.html" class="nav-dropdown-toggle">Servicios ▾</a>
+        <ul class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            <li><a href="construccion-piscinas.html">Construcción de piscinas</a></li>
+            <li><a href="rehabilitacion.html">Rehabilitación</a></li>
+            <li><a href="lamina-armada.html">Lámina armada RENOLIT</a></li>
+            <li><a href="reformas-piscinas.html">Reformas integrales</a></li>
+          </div>
+        </ul>
+      </li>
+      <li><a href="catalogo.html" class="active">Catálogo</a></li>
+      <li><a href="index.html#galeria">Proyectos</a></li>
+      <li><a href="quienes-somos.html">Quiénes somos</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+      <li><a href="contacto.html" class="btn btn-arena" style="padding:9px 20px;font-size:.85rem">Pedir presupuesto</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+<nav id="mobile-menu" class="mobile-menu">
+  <a href="servicios.html">Servicios</a>
+  <a href="construccion-piscinas.html" style="padding-left:1.8rem">— Construcción de piscinas</a>
+  <a href="rehabilitacion.html" style="padding-left:1.8rem">— Rehabilitación</a>
+  <a href="lamina-armada.html" style="padding-left:1.8rem">— Lámina armada RENOLIT</a>
+  <a href="reformas-piscinas.html" style="padding-left:1.8rem">— Reformas integrales</a>
+  <a href="catalogo.html">Catálogo</a>
+  <a href="quienes-somos.html">Quiénes somos</a>
+  <a href="index.html#galeria">Proyectos</a>
+  <a href="index.html#faq">FAQ</a>
+  <a href="contacto.html">Contacto</a>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-img" style="background-image:url('img/construcion%20piscina%20madrid.jpg')"></div>
+  <div class="wrap page-hero-content rv-l">
+    <div class="chip chip-w">RENOLIT ALKORPLAN</div>
+    <h1>Catálogo membrana armada RENOLIT ALKORPLAN</h1>
+    <p class="sub">La mejor lámina armada del mercado en todas sus gamas. Instalación por termofusión con garantía ampliada e instaladores certificados por RENOLIT.</p>
+    <a href="contacto.html" class="btn btn-arena">Solicita tu presupuesto →</a>
+  </div>
+  <div class="hero-wave">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,35C360,70 720,0 1080,35C1260,53 1380,17 1440,35L1440,70L0,70Z" fill="#FFFFFF"/>
+    </svg>
+  </div>
+</section>
+
+<!-- CATÁLOGO -->
+<section class="sec">
+  <div class="wrap">
+
+    <div class="sec-hd rv">
+      <div class="chip chip-b">Elige tu gama</div>
+      <h2>Encuentra la membrana ideal para tu piscina</h2>
+      <p>Todas las gamas RENOLIT ALKORPLAN disponibles. Cada una diseñada para un estilo y una necesidad. Todas con la misma garantía de calidad.</p>
+    </div>
+
+    <div class="catalogo-grid">
+
+      <!-- TOUCH -->
+      <div class="gama-card rv">
+        <div class="gama-img">
+          <span class="gama-badge badge-alta">Gama Alta</span>
+          <img src="img/catalogo-touch.webp" alt="RENOLIT ALKORPLAN Touch">
+        </div>
+        <div class="gama-body">
+          <div class="gama-nombre">TOUCH</div>
+          <div class="gama-specs">Espesor 2 mm · Textura en relieve</div>
+          <p class="gama-desc">Membrana armada de 2 mm, estampada y con relieve, inspirada en la naturaleza para aportar carácter y personalidad a tu piscina RENOLIT ALKORPLAN.</p>
+          <a href="catalogo-touch.html" class="gama-cta">Ver más →</a>
+        </div>
+      </div>
+
+      <!-- VOGUE -->
+      <div class="gama-card rv">
+        <div class="gama-img">
+          <span class="gama-badge badge-alta">Gama Alta</span>
+          <img src="img/catalogo-vogue.webp" alt="RENOLIT ALKORPLAN Vogue">
+        </div>
+        <div class="gama-body">
+          <div class="gama-nombre">VOGUE</div>
+          <div class="gama-specs">Espesor 2 mm · Textura en relieve</div>
+          <p class="gama-desc">Membrana armada de 2 mm, estampada y con relieve, inspirada en las últimas tendencias de interiorismo para lograr una armonía perfecta entre el interior de la vivienda y el espacio exterior.</p>
+          <a href="catalogo-vogue.html" class="gama-cta">Ver más →</a>
+        </div>
+      </div>
+
+      <!-- CERAMICS EVOLVE -->
+      <div class="gama-card rv">
+        <div class="gama-img">
+          <span class="gama-badge badge-alta">Gama Alta</span>
+          <img src="img/catalogo-ceramics.jpg" alt="RENOLIT ALKORPLAN Ceramics Evolve">
+        </div>
+        <div class="gama-body">
+          <div class="gama-nombre">CERAMICS EVOLVE</div>
+          <div class="gama-specs">Espesor 2 mm · Textura en relieve</div>
+          <p class="gama-desc">Membrana reforzada de 2 mm, con acabado impreso y textura en relieve, inspirada en la cerámica para aportar carácter y personalidad a la piscina.</p>
+          <a href="catalogo-ceramics.html" class="gama-cta">Ver más →</a>
+        </div>
+      </div>
+
+      <!-- ALIVE -->
+      <div class="gama-card rv">
+        <div class="gama-img">
+          <span class="gama-badge badge-media">Gama Media</span>
+          <img src="img/catalogo-alive.jpg" alt="RENOLIT ALKORPLAN Alive">
+        </div>
+        <div class="gama-body">
+          <div class="gama-nombre">ALIVE</div>
+          <div class="gama-specs">Espesor 1,65 mm · Textura en relieve</div>
+          <p class="gama-desc">Esta nueva colección une bienestar y diseño a través de colores únicos. Sumérgete en esta experiencia sensorial y renueva tu esencia con ALIVE.</p>
+          <a href="catalogo-alive.html" class="gama-cta">Ver más →</a>
+        </div>
+      </div>
+
+      <!-- RELIEF -->
+      <div class="gama-card rv">
+        <div class="gama-img">
+          <span class="gama-badge badge-basica">Gama Básica</span>
+          <img src="img/catalogo-relief.webp" alt="RENOLIT ALKORPLAN Relief">
+        </div>
+        <div class="gama-body">
+          <div class="gama-nombre">RELIEF</div>
+          <div class="gama-specs">Espesor 1,8 mm · Textura en relieve</div>
+          <p class="gama-desc">Descubre una amplia gama de colores con textura y propiedades antideslizantes para el revestimiento de tu piscina en 1,8 mm. Elige entre acabados en tonos clásicos o propuestas más sofisticadas.</p>
+          <a href="catalogo-relief.html" class="gama-cta">Ver más →</a>
+        </div>
+      </div>
+
+      <!-- KOLOS -->
+      <div class="gama-card rv">
+        <div class="gama-img">
+          <span class="gama-badge badge-trafico">Alto Tráfico</span>
+          <img src="img/catalogo-kolos.webp" alt="RENOLIT ALKORPLAN Kolos">
+        </div>
+        <div class="gama-body">
+          <div class="gama-nombre">KOLOS</div>
+          <div class="gama-specs">Espesor 1,5 mm</div>
+          <p class="gama-desc">Pensada para piscinas públicas y de uso comercial. Con un espesor de 1,5 mm, estas membranas establecen un nuevo referente en el sector, combinando resistencia y elegancia de larga duración.</p>
+          <a href="catalogo-kolos.html" class="gama-cta">Ver más →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="sec" style="background:var(--gris-bg)">
+  <div class="wrap rv">
+    <div class="cta-banner">
+      <h2>¿No sabes qué gama elegir?</h2>
+      <p>Te asesoramos sin compromiso. Cuéntanos tu piscina y te recomendamos la membrana más adecuada.</p>
+      <div class="cta-btns">
+        <a href="contacto.html" class="btn btn-ghost">Solicitar asesoramiento →</a>
+        <a href="tel:614691070" class="btn" style="background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.4)">📞 614 69 10 70</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-wrap">
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <a href="index.html" style="display:inline-block;text-decoration:none">
+          <img src="img/logo-solaris-negativo.png" alt="Solaris Piscinas" style="height:40px;width:auto;display:block;margin-bottom:.8rem">
+        </a>
+        <p>Especialistas en construcción y rehabilitación de piscinas en Madrid.</p>
+      </div>
+      <div class="ft-col"><h4>Servicios</h4><ul>
+        <li><a href="construccion-piscinas.html">Construcción</a></li>
+        <li><a href="rehabilitacion.html">Rehabilitación</a></li>
+        <li><a href="lamina-armada.html">Lámina armada</a></li>
+        <li><a href="reformas-piscinas.html">Reformas</a></li>
+      </ul></div>
+      <div class="ft-col"><h4>Empresa</h4><ul>
+        <li><a href="catalogo.html">Catálogo</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="quienes-somos.html">Quiénes somos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul></div>
+      <div class="ft-col"><h4>Contacto</h4><ul>
+        <li><a href="tel:614691070">📞 614 69 10 70</a></li>
+        <li><a href="mailto:info@piscinassolaris.es">📧 info@piscinassolaris.es</a></li>
+        <li><a href="#">📍 Sevilla la Nueva, Madrid</a></li>
+      </ul></div>
+    </div>
+    <div class="ft-bot">
+      <p>© 2025 Solaris · <a href="#">Política de privacidad</a> · <a href="#">Aviso legal</a></p>
+      <div class="ft-soc">
+        <a href="#" aria-label="Instagram">ig</a>
+        <a href="#" aria-label="Facebook">fb</a>
+        <a href="#" aria-label="WhatsApp">wa</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="float">
+  <a href="https://wa.me/34614691070" class="fb-btn fb-wa" target="_blank">💬 WhatsApp</a>
+  <a href="tel:614691070" class="fb-btn fb-tel">📞 Llamar</a>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
