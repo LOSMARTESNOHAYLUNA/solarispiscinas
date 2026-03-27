@@ -89,18 +89,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ── Formulario de contacto ── */
-  document.querySelectorAll('form[data-contact]').forEach(form => {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const btn = form.querySelector('.btn-sub');
-      btn.textContent = 'Enviando...';
-      btn.disabled = true;
-      setTimeout(() => {
-        window.location.href = 'gracias.html';
-      }, 600);
-    });
-  });
+  /* ── Formulario de contacto — gestionado por Web3Forms ── */
+  // El formulario envía directamente a Web3Forms y redirige a gracias.html
 
   /* ── Nav: marcar página activa ── */
   const path = window.location.pathname.split('/').pop() || 'index.html';
