@@ -86,10 +86,12 @@
       <div class="fcard rv-r" style="position:sticky;top:90px">
         <h3>Escríbenos y te responderemos en menos de 24h.</h3>
         <p class="sub">Cuéntanos tu idea, tu problema o tu duda. Te ayudamos.</p>
-        <form action="https://api.web3forms.com/submit" method="POST" data-contact>
+        <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" data-contact>
           <input type="hidden" name="access_key" value="595afc4f-44e6-4170-a888-0b6d70a9b571">
           <input type="hidden" name="subject" value="Nuevo presupuesto - Piscinas Solaris">
-          <input type="hidden" name="redirect" value="https://piscinassolaris.es/gracias.html">
+          <input type="hidden" name="from_name" value="Web Piscinas Solaris">
+          <input type="hidden" name="to" value="info@piscinassolaris.es">
+          <input type="checkbox" name="botcheck" style="display:none">
           <div class="fgrow">
             <div class="fg"><label for="nom">Nombre completo</label><input type="text" id="nom" name="nombre" placeholder="Tu nombre" required></div>
             <div class="fg"><label for="tel">Teléfono</label><input type="tel" id="tel" name="telefono" placeholder="614 00 00 00" required></div>
@@ -174,4 +176,32 @@
   <a href="quienes-somos.html">Quiénes somos</a></li><li><a href="contacto.html">Contacto</a></li></ul></div><div class="ft-col"><h4>Contacto</h4><ul><li><a href="tel:614691070">📞 614 69 10 70</a></li><li><a href="mailto:info@piscinassolaris.es">📧 contacto@dominio.com</a></li><li><a href="#">📍 Sevilla la Nueva, Madrid</a></li></ul></div></div><div class="ft-bot"><p>© 2025 Solaris · <a href="#">Política de privacidad</a> · <a href="#">Aviso legal</a></p><div class="ft-soc"><a href="#" aria-label="Instagram">ig</a><a href="#" aria-label="Facebook">fb</a><a href="#" aria-label="WhatsApp">wa</a></div></div></div></footer>
 <div class="float"><a href="https://wa.me/34614691070" class="fb-btn fb-wa" target="_blank">💬 WhatsApp</a><a href="tel:614691070" class="fb-btn fb-tel">📞 Llamar</a></div>
 <script src="js/main.js"></script>
+
+<script>
+const form = document.getElementById('contactForm');
+if (form) {
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]');
+    btn.textContent = 'Enviando...';
+    btn.disabled = true;
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: new FormData(form)
+      });
+      const data = await res.json();
+      if (data.success) {
+        window.location.href = 'https://solarispiscinas.vercel.app/gracias.html';
+      } else {
+        btn.textContent = 'Error. Inténtalo de nuevo.';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.textContent = 'Error. Inténtalo de nuevo.';
+      btn.disabled = false;
+    }
+  });
+}
+</script>
 </body></html>
