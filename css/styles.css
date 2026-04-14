@@ -112,7 +112,7 @@ p  { line-height: 1.75; color: var(--gris-dk); }
   backdrop-filter: blur(18px);
   box-shadow: 0 2px 20px rgba(0,0,0,.18);
 }
-.nav { display: flex; align-items: center; justify-content: space-between; height: 70px; }
+.nav { display: flex; align-items: center; justify-content: space-between; height: 100px; }
 .logo-t { font-size: 1.55rem; font-weight: 800; color: #fff; letter-spacing: -.03em; text-decoration: none; }
 .logo-t span { color: var(--arena); }
 .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
@@ -137,12 +137,11 @@ p  { line-height: 1.75; color: var(--gris-dk); }
   display: none;
   position: absolute; top: 100%; left: 50%;
   transform: translateX(-50%);
-  padding-top: 10px; /* espacio visual, cubierto por el puente */
+  padding-top: 10px;
   list-style: none;
   z-index: 9999;
   white-space: nowrap;
 }
-/* Puente invisible que evita que el hover se pierda al mover el ratón */
 .nav-dropdown-menu::before {
   content: '';
   position: absolute; top: 0; left: 0; right: 0;
@@ -181,7 +180,7 @@ p  { line-height: 1.75; color: var(--gris-dk); }
 
 /* Menú mobile */
 .mobile-menu {
-  display: none; position: fixed; top: 70px; left: 0; right: 0; z-index: 899;
+  display: none; position: fixed; top: 100px; left: 0; right: 0; z-index: 899;
   background: rgba(8,145,178,.98); backdrop-filter: blur(18px);
   padding: 1.5rem 24px; flex-direction: column; gap: .5rem;
   border-top: 1px solid rgba(255,255,255,.1);
@@ -197,7 +196,7 @@ p  { line-height: 1.75; color: var(--gris-dk); }
 .page-hero {
   min-height: 52vh; display: flex; align-items: center;
   background: linear-gradient(145deg, #093347 0%, #0A6885 50%, #0AAFCC 100%);
-  position: relative; overflow: hidden; padding-top: 70px;
+  position: relative; overflow: hidden; padding-top: 100px;
 }
 .page-hero::before {
   content: ''; position: absolute; inset: 0;
@@ -277,84 +276,44 @@ p  { line-height: 1.75; color: var(--gris-dk); }
 .sec-gal .sec-hd h2 { color: #fff; }
 .sec-gal .sec-hd p  { color: rgba(255,255,255,.58); }
 .ggrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.3rem; }
-
-/* Contenedor */
 .gi {
   border-radius: var(--rl); overflow: hidden;
   position: relative; height: 300px;
   cursor: col-resize;
   user-select: none; -webkit-user-select: none;
 }
-
-/* Ambas imágenes ocupan todo el contenedor */
-.gi-after,
-.gi-before {
-  position: absolute; inset: 0;
-}
-.gi-after img,
-.gi-before img {
-  width: 100%; height: 100%;
-  object-fit: cover; display: block;
-}
-
-/* El "antes" se recorta con clip-path: empieza en 0% a la izquierda, termina en 50% */
-.gi-before {
-  clip-path: inset(0 50% 0 0); /* el 50% derecho queda oculto */
-  transition: clip-path 0s;    /* sin transición para que sea fluido al arrastrar */
-}
-
-/* Línea divisora */
+.gi-after, .gi-before { position: absolute; inset: 0; }
+.gi-after img, .gi-before img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.gi-before { clip-path: inset(0 50% 0 0); transition: clip-path 0s; }
 .gi-line {
-  position: absolute; top: 0; bottom: 0;
-  left: 50%;
-  width: 3px;
-  background: var(--arena);
-  z-index: 4;
-  transform: translateX(-50%);
-  pointer-events: none;
+  position: absolute; top: 0; bottom: 0; left: 50%;
+  width: 3px; background: var(--arena); z-index: 4;
+  transform: translateX(-50%); pointer-events: none;
 }
-
-/* Handle */
 .gi-handle {
-  position: absolute;
-  top: 50%; left: 50%;
+  position: absolute; top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  width: 48px; height: 48px;
-  border-radius: 50%;
-  background: var(--arena);
-  border: 3px solid #fff;
-  box-shadow: 0 2px 16px rgba(0,0,0,.45);
-  z-index: 5;
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--arena); border: 3px solid #fff;
+  box-shadow: 0 2px 16px rgba(0,0,0,.45); z-index: 5;
   display: flex; align-items: center; justify-content: center;
-  pointer-events: none;
-  transition: transform .1s;
+  pointer-events: none; transition: transform .1s;
 }
 .gi-handle svg { width: 22px; height: 22px; }
-.gi.dragging .gi-handle {
-  transform: translate(-50%, -50%) scale(1.2);
-}
-
-/* Etiquetas */
-.gi-lbl-before,
-.gi-lbl-after {
+.gi.dragging .gi-handle { transform: translate(-50%, -50%) scale(1.2); }
+.gi-lbl-before, .gi-lbl-after {
   position: absolute; bottom: 42px; z-index: 6;
-  font-size: .66rem; font-weight: 700;
-  letter-spacing: .1em; text-transform: uppercase;
-  color: #fff; padding: 4px 10px; border-radius: 50px;
-  pointer-events: none;
+  font-size: .66rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  color: #fff; padding: 4px 10px; border-radius: 50px; pointer-events: none;
 }
-.gi-lbl-before { left: 12px;  background: rgba(0,0,0,.5); }
+.gi-lbl-before { left: 12px; background: rgba(0,0,0,.5); }
 .gi-lbl-after  { right: 12px; background: rgba(10,175,204,.75); }
-
-/* Caption */
 .gi-caption {
   position: absolute; bottom: 0; left: 0; right: 0; z-index: 3;
   background: linear-gradient(to top, rgba(9,51,71,.9), transparent);
   color: #fff; padding: 2rem .9rem .7rem;
-  font-size: .78rem; font-weight: 500;
-  pointer-events: none;
+  font-size: .78rem; font-weight: 500; pointer-events: none;
 }
-
 @media (max-width: 1024px) { .ggrid { grid-template-columns: 1fr; } }
 @media (max-width: 768px)  { .gi { height: 260px; } }
 
@@ -499,4 +458,7 @@ footer { background: linear-gradient(155deg, #093347, #065869); padding: 3.5rem 
   .float { bottom: 1rem; right: 1rem; }
   .cta-banner { padding: 2.5rem 1.5rem; }
   .sec { padding: 60px 0; }
+  .nav { height: 80px; }
+  .mobile-menu { top: 80px; }
+  .page-hero { padding-top: 80px; }
 }
