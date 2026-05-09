@@ -58,57 +58,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const before = slider.querySelector('.gi-before');
     const line   = slider.querySelector('.gi-line');
     const handle = slider.querySelector('.gi-handle');
-    // Fijar el ancho de la imagen "antes" para que no se deforme al recortar
-    const afterImg = slider.querySelector('.gi-after img');
-    const beforeImg = slider.querySelector('.gi-before img');
 
     function setPos(pct) {
-      pct = Math.max(5, Math.min(95, pct));
-      before.style.width = pct + '%';
-      line.style.left    = pct + '%';
-      handle.style.left  = pct + '%';
-      // Evitar que la imagen del before se deforme
-      beforeImg.style.width  = slider.offsetWidth + 'px';
-      beforeImg.style.height = slider.offsetHeight + 'px';
-      beforeImg.style.objectFit = 'cover';
-      beforeImg.style.position  = 'absolute';
-      beforeImg.style.top = '0';
-      beforeImg.style.left = '0';
+      pct = Math.max(2, Math.min(98, pct));
+      // clip-path recorta el lado derecho: inset(0 X% 0 0)
+      // X = 100 - pct → si pct=50, oculta el 50% derecho
+      before.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+      line.style.left   = pct + '%';
+      handle.style.left = pct + '%';
     }
 
-    // Init al 50%
-    setPos(50);
-    window.addEventListener('resize', () => setPos(
-      parseFloat(before.style.width) || 50
-    ));
+    setPos(50); // posición inicial
 
     let dragging = false;
 
-    function startDrag(e) {
-      dragging = true;
-      slider.classList.add('dragging');
-      e.preventDefault();
-    }
-    function stopDrag() {
-      dragging = false;
-      slider.classList.remove('dragging');
-    }
-    function onMove(clientX) {
-      if (!dragging) return;
-      const rect = slider.getBoundingClientRect();
-      const pct  = ((clientX - rect.left) / rect.width) * 100;
-      setPos(pct);
-    }
+    slider.addEventListener('mousedown',  e => { dragging = true; slider.classList.add('dragging'); e.preventDefault(); });
+    window.addEventListener('mouseup',    ()  => { dragging = false; slider.classList.remove('dragging'); });
+    window.addEventListener('mousemove',  e   => { if (dragging) setPos(((e.clientX - slider.getBoundingClientRect().left) / slider.offsetWidth) * 100); });
 
-    // Mouse
-    slider.addEventListener('mousedown',  startDrag);
-    window.addEventListener('mouseup',    stopDrag);
-    window.addEventListener('mousemove',  e => onMove(e.clientX));
-
-    // Touch
-    slider.addEventListener('touchstart', e => { startDrag(e); }, { passive: false });
-    window.addEventListener('touchend',   stopDrag);
-    window.addEventListener('touchmove',  e => onMove(e.touches[0].clientX), { passive: true });
+    slider.addEventListener('touchstart', e => { dragging = true; slider.classList.add('dragging'); }, { passive: true });
+    window.addEventListener('touchend',   ()  => { dragging = false; slider.classList.remove('dragging'); });
+    window.addEventListener('touchmove',  e   => { if (dragging) setPos(((e.touches[0].clientX - slider.getBoundingClientRect().left) / slider.offsetWidth) * 100); }, { passive: true });
   });
   document.querySelectorAll('.fq').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -119,23 +89,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ── Formulario de contacto ── */
-  document.querySelectorAll('form[data-contact]').forEach(form => {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const btn = form.querySelector('.btn-sub');
-      const original = btn.textContent;
-      btn.textContent = '✅ ¡Solicitud enviada! Nos ponemos en contacto pronto.';
-      btn.style.background = 'linear-gradient(135deg,#22c55e,#16a34a)';
-      btn.disabled = true;
-      setTimeout(() => {
-        btn.textContent = original;
-        btn.style.background = '';
-        btn.disabled = false;
-        form.reset();
-      }, 4000);
-    });
-  });
+  /* ── Formulario de contacto — gestionado por Web3Forms ── */
+  // El formulario envía directamente a Web3Forms y redirige a gracias.html
 
   /* ── Nav: marcar página activa ── */
   const path = window.location.pathname.split('/').pop() || 'index.html';
